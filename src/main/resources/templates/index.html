@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RETRO VIDEO</title>
+    <link rel="icon" th:href="@{/img/retrovideo.ico}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+
+<body>
+    <nav>
+        <h1>GENRES</h1>
+        <a th:href="@{/aktiefilm}" class="navlink">Aktiefilm</a>
+        <a th:href="@{/avontuur}" class="navlink">Avontuur</a>
+        <a th:href="@{/cowboyfilm}" class="navlink">Cowboyfilm</a>
+        <a th:href="@{/erotiek}" class="navlink">Erotiek</a>
+    </nav>
+
+    <div id="container">
+        <h2>AKTIEFILM</h2>
+
+        <a th:href="@{/video}"><img th:src="@{/img/1.jpg}" class="filmimg imghover" alt="videoke"/></a>
+        <a th:href="@{/video}"><img th:src="@{/img/6.jpg}" class="filmimg imghover" alt="videoke"/></a>
+        <a th:href="@{/video}"><img th:src="@{/img/8.jpg}" class="filmimg imghover" alt="videoke"/></a>
+        <a th:href="@{/video}"><img th:src="@{/img/17.jpg}" class="filmimg imghover" alt="videoke"/></a>
+
+    </div>
+
+</body>
+
+
+</html>
