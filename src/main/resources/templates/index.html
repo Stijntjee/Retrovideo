@@ -9,16 +9,14 @@
 </head>
 
 <body>
+
     <nav>
         <h1>GENRES</h1>
-        <a th:href="@{/aktiefilm}" class="navlink">Aktiefilm</a>
-        <a th:href="@{/avontuur}" class="navlink">Avontuur</a>
-        <a th:href="@{/cowboyfilm}" class="navlink">Cowboyfilm</a>
-        <a th:href="@{/erotiek}" class="navlink">Erotiek</a>
+        <a th:each="genre:${genres}" th:object="${genre}" th:href="@{/{genre}(genre=*{naam})}" th:text="*{naam}" class="navlink"></a>
     </nav>
 
     <div id="container">
-        <h2>AKTIEFILM</h2>
+        <h2 th:text="${genre}"></h2>
 
         <a th:href="@{/video}"><img th:src="@{/img/1.jpg}" class="filmimg imghover" alt="videoke"/></a>
         <a th:href="@{/video}"><img th:src="@{/img/6.jpg}" class="filmimg imghover" alt="videoke"/></a>
