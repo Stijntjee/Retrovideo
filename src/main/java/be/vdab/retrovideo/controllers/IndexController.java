@@ -1,7 +1,10 @@
 package be.vdab.retrovideo.controllers;
 
+import be.vdab.retrovideo.domain.Film;
 import be.vdab.retrovideo.domain.Genre;
+import be.vdab.retrovideo.services.FilmService;
 import be.vdab.retrovideo.services.GenreService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,12 +18,16 @@ import java.util.List;
 class IndexController
 {
     private List<Genre> genres;
+    private List<Film> films;
+    FilmService filmService;
 
-    IndexController(GenreService genreService)
+    IndexController(GenreService genreService, FilmService filmService)
     {
         genres = genreService.findAll();
+        this.filmService = filmService;
     }
 
+    //MAPPINGS
     @GetMapping("/")
     public ModelAndView index()
     {
@@ -30,14 +37,18 @@ class IndexController
     }
 
     @GetMapping("/{genre}")
-    public ModelAndView getArticleById(@PathVariable("genre") String naam)
+    public ModelAndView getFilmsByGenre(@PathVariable("genre") String naam)
     {
         for (Genre genre : genres)
         {
             if (naam.equals(genre.getNaam()))
             {
                 ModelAndView mav = new ModelAndView("index", "genres", genres);
+
+                films = filmService.findByGenre(genre.getId());
+                mav.addObject("films", films);
                 mav.addObject("genre", naam);
+
                 return mav;
             }
         }

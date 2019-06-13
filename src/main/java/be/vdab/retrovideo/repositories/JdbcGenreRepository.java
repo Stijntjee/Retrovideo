@@ -13,7 +13,8 @@ public class JdbcGenreRepository implements GenreRepository
     private final JdbcTemplate template;
 
     private final RowMapper<Genre> genreMapper = (result, rowNum) ->
-            new Genre(result.getInt("id"), result.getString("naam"));
+            new Genre(result.getInt("id"),
+                        result.getString("naam"));
 
     //CONSTRUCTORS
     JdbcGenreRepository(JdbcTemplate template)

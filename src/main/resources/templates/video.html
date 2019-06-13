@@ -16,19 +16,28 @@
 
 <div id="container">
     <div class="left">
-        <h2>BABE</h2>
-        <img th:src="@{/img/8.jpg}" class="filmimg" alt="videoke"/>
+
+        <h2 th:text="${film.titel}"></h2>
+
+        <img th:src="@{/img/{id}.jpg (id = ${film.id})}" class="filmimg" alt="videoke"/>
+
     </div>
 
     <div class="right">
         <p>Prijs</p>
-        <p>ooo</p>
+        <p th:text="${film.prijs}">ooo</p>
 
         <p>Voorraad</p>
-        <p>ooo</p>
+        <p th:text="${film.voorraad}"></p>
+
+        <p>Gereserveerd</p>
+        <p th:text="${film.gereserveerd}"></p>
 
         <p>Beschikbaar</p>
-        <p>ooo</p>
+        <p th:text="${film.voorraad} - ${film.gereserveerd}"></p>
+
+        <input type="hidden" name="id" value="0"/>
+        <input th:if="${film.voorraad} > 0" type="submit" value="Toevoegen" text="in mandje">
     </div>
 </div>
 

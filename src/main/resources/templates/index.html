@@ -18,10 +18,9 @@
     <div id="container">
         <h2 th:text="${genre}"></h2>
 
-        <a th:href="@{/video}"><img th:src="@{/img/1.jpg}" class="filmimg imghover" alt="videoke"/></a>
-        <a th:href="@{/video}"><img th:src="@{/img/6.jpg}" class="filmimg imghover" alt="videoke"/></a>
-        <a th:href="@{/video}"><img th:src="@{/img/8.jpg}" class="filmimg imghover" alt="videoke"/></a>
-        <a th:href="@{/video}"><img th:src="@{/img/17.jpg}" class="filmimg imghover" alt="videoke"/></a>
+        <a th:each="film:${films}" th:object="${film}" th:href="@{/video/{film}(film = *{id})}">
+            <img th:src="@{/img/{film}.jpg(film = *{id})}" class="filmimg imghover" alt="videoke"/>
+        </a>
 
     </div>
 

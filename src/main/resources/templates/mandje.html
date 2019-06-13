@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RETRO VIDEO</title>
+    <link rel="icon" th:href="@{/img/retrovideo.ico}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+
+<body>
+
+<nav>
+    <h1>MANDJE</h1>
+</nav>
+
+<div id="container">
+    <div>
+        <div><span>Film</span><span>Prijs</span><span>verwijderen</span></div>
+        <div th:each="film:${filmsInMandje}"><span  th:text="${film.titel}"></span></div>
+    </div>
+
+</div>
+
+</body>
+
+
+</html>
