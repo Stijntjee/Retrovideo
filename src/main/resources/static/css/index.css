@@ -59,3 +59,10 @@ p {
 {
     float: right;
 }
+
+.sptabel
+{
+    display: inline-block;
+    width: 150px;
+    background-color: dimgray;
+}

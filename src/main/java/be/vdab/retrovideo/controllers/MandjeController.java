@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/mandje")
+@RequestMapping("/mandjes")
 public class MandjeController
 {
     private final Mandje mandje;
@@ -29,13 +29,13 @@ public class MandjeController
     {
         voegToe(1);
         voegToe(3);
-        List<Film> alleFilms = filmservice.findAll();
+        /*List<Film> alleFilms = filmservice.findAll();
         ModelAndView mav = new ModelAndView("mandje").addObject("mandje", alleFilms);
         if (mandje.isGevuld()) {
             mav.addObject("filmsInMandje", alleFilms.stream().filter(film ->
-                    mandje.bevat(film.getId())).collect(Collectors.toList()));
-        }
-        return mav;
+                    mandje.bevat(film.getId())).collect(Collectors.toList()));*/
+
+        return new ModelAndView("index","index","kip");
     }
 
     public @PostMapping

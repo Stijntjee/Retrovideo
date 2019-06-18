@@ -2,18 +2,17 @@ package be.vdab.retrovideo.controllers;
 
 import be.vdab.retrovideo.domain.Film;
 import be.vdab.retrovideo.services.FilmService;
-import be.vdab.retrovideo.services.GenreService;
 import be.vdab.retrovideo.sessions.Mandje;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/video")
@@ -45,6 +44,30 @@ class VideoController
 
         filmService.getFilmById(id).ifPresent(film -> { mav.addObject("film", film);});
         return mav;
+    }
+
+    @GetMapping("{id}/mandje")
+    public ModelAndView ganaarMandje(@PathVariable("id") int id)
+    {
+        voegToe(id);
+        List<Film> alleFilms = filmService.findAll();
+
+        ModelAndView mav = new ModelAndView("mandje").addObject("mandje", alleFilms);
+
+        if (mandje.isGevuld()) {
+            mav.addObject("filmsInMandje", alleFilms.stream().filter(film ->
+                    mandje.bevat(film.getId())).collect(Collectors.toList()));
+
+        }
+
+        return mav;
+    }
+
+    public @PostMapping
+    String voegToe(int id)
+    {
+        mandje.voegToe(id);
+        return "redirect:/mandje";
     }
 
     }

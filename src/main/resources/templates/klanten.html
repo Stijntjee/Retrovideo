@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RETRO VIDEO</title>
+    <link rel="icon" th:href="@{/img/retrovideo.ico}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+
+<body>
+<nav>
+    <h1>KLANTEN</h1>
+    <a th:href="@{/}">Genres</a>
+    <a th:href="@{/video/0/mandje}">Mandje</a>
+    <a th:href="@{/klanten}">Klant</a>
+</nav>
+
+<div id="container">
+    <form th:object="${klantform}" >
+        <label>Familienaam bevat:<input th:field="*{familienaam}"></label>
+        <input type="submit" value="Zoeken">
+    </form>
+        <table style="width:100%">
+        <tr>
+            <th>Naam</th>
+            <th>Straat - HuisNummer</th>
+            <th>Postcode</th>
+            <th>Gemeente</th>
+        </tr>
+        <tr th:each="klant:${klanten}" th:object="${klant}">
+            <td th:text="|${klant.voornaam} ${klant.familienaam}|"></td>
+            <td th:text="${klant.straatNummer}"></td>
+            <td th:text="${klant.postcode}"></td>
+            <td th:text="${klant.gemeente}"></td>
+        </tr>
+        </table>
+
+</div>
+
+</body>
+
+
+</html>

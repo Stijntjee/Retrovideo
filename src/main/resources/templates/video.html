@@ -36,8 +36,8 @@
         <p>Beschikbaar</p>
         <p th:text="${film.voorraad} - ${film.gereserveerd}"></p>
 
-        <input type="hidden" name="id" value="0"/>
-        <input th:if="${film.voorraad} > 0" type="submit" value="Toevoegen" text="in mandje">
+            <a th:href="@{/video/{id}/mandje (id=${film.id})}"><input th:if="${film.voorraad} > 0" type="submit" value="IN MANDJE" text="in mandje" ></a>
+
     </div>
 </div>
 

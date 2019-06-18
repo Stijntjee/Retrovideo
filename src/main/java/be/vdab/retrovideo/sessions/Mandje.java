@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -32,4 +33,5 @@ public class Mandje implements Serializable
     public Set<Integer> getIds() {
         return ids;
     }
+
 }

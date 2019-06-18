@@ -12,12 +12,16 @@
 
 <nav>
     <h1>MANDJE</h1>
+    <a th:href="@{/}">Genres</a>
+    <a th:href="@{/video/0/mandje}">Mandje</a>
+    <a th:href="@{/klanten}">Klant</a>
+
 </nav>
 
 <div id="container">
     <div>
-        <div><span>Film</span><span>Prijs</span><span>verwijderen</span></div>
-        <div th:each="film:${filmsInMandje}"><span  th:text="${film.titel}"></span></div>
+        <div><div class="sptabel">Film</div><div class="sptabel">Prijs</div><div class="sptabel">verwijderen</div></div>
+        <div th:each="film:${filmsInMandje}"><div class="sptabel"  th:text="${film.titel}"></div><div class="sptabel" th:text="${film.prijs}"></div><div class="sptabel">x</div></div>
     </div>
 
 </div>
