@@ -1,2 +1,6 @@
-<nav th:fragment="nav" xmlns:th='http://www.thymeleaf.org'>
+<nav th:fragment="nav(titel)" xmlns:th='http://www.thymeleaf.org'>
+    <h1 th:text="${titel}"></h1>
+    <a th:href="@{/}" class="navlink">Genres</a>
+    <a th:href="@{/video/0/mandje}" class="navlink">Mandje</a>
+    <a th:href="@{/klanten}" class="navlink">Klant</a>
 </nav>

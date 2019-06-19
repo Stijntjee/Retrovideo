@@ -14,10 +14,11 @@
     <a th:href="@{/}" class="navlink">Genres</a>
 </nav>
 
-<div id="container">
-    <div class="left">
+<div id="container special">
 
-        <h2 th:text="${film.titel}"></h2>
+    <center><h2 th:text="${film.titel}"></h2></center>
+
+    <div class="left">
 
         <img th:src="@{/img/{id}.jpg (id = ${film.id})}" class="filmimg" alt="videoke"/>
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RETRO VIDEO</title>
+    <link rel="icon" th:href="@{/img/retrovideo.ico}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+
+<body>
+<nav th:replace="fragments::nav(titel='BEVESTIGEN')"></nav>
+
+<div id="container">
+    <form>
+        <span th:text="| ${aantal} film(s) voor ${klant.voornaam} ${klant.familienaam}|"></span>
+        <input type="submit" value="Bevestigen">
+
+    </form>
+
+</div>
+
+</body>
+
+
+</html>

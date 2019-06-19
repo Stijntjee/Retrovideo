@@ -9,14 +9,7 @@
 </head>
 
 <body>
-
-<nav>
-    <h1>MANDJE</h1>
-    <a th:href="@{/}">Genres</a>
-    <a th:href="@{/video/0/mandje}">Mandje</a>
-    <a th:href="@{/klanten}">Klant</a>
-
-</nav>
+<nav th:replace="fragments::nav(titel='MANDJE')"></nav>
 
 <div id="container">
     <div>

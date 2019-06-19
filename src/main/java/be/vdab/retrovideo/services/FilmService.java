@@ -10,4 +10,5 @@ public interface FilmService
     List<Film> findAll();
     List<Film> findByGenre(int genreid);
     Optional<Film> getFilmById(int id);
+    void reserveer(Film film);
 }

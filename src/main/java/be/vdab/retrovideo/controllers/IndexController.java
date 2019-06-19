@@ -21,6 +21,7 @@ class IndexController
     private List<Film> films;
     FilmService filmService;
 
+    //CONSTRUCTORS
     IndexController(GenreService genreService, FilmService filmService)
     {
         genres = genreService.findAll();

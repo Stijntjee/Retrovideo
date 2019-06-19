@@ -23,23 +23,19 @@ class KlantenController
         this.klantService = klantService;
     }
 
+    //MAPPINGS
     @GetMapping()
     public ModelAndView klanten(KlantForm form)
     {
-        klanten = klantService.getKlantByFamilieNaam(form.getFamilienaam()); //EFKES 'CO' gehardcodet!!!!
+        klanten = klantService.getKlantByFamilieNaam(form.getFamilienaam());
         ModelAndView mav = new ModelAndView("klanten", "klanten", klanten);
         mav.addObject("klantform", new KlantForm(null));
         return mav;
     }
 
-    @GetMapping("klanten/form")
-    public ModelAndView vanTotPrijsForm() {
-        return new ModelAndView("klantform");
-
-    }
 
     @GetMapping("klanten")
-    public ModelAndView vanTotPrijs(KlantForm form) {
+    public ModelAndView zoekKlanten(KlantForm form) {
         return new ModelAndView("klanten", "klanten", klantService.getKlantByFamilieNaam(form.getFamilienaam()));
     }
 

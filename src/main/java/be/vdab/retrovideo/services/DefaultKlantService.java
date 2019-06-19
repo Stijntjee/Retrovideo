@@ -7,10 +7,11 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true , isolation = Isolation.READ_COMMITTED)
-public class DefaultKlantService implements KlantService
+class DefaultKlantService implements KlantService
 {
     private final KlantRepository klantRepository;
 
@@ -20,10 +21,14 @@ public class DefaultKlantService implements KlantService
         this.klantRepository = klantRepository;
     }
 
-
-
+    //METHODS
     @Override
     public List<Klant> getKlantByFamilieNaam(String familienaam) {
         return klantRepository.getKlantByFamilieNaam(familienaam);
+    }
+
+    @Override
+    public Optional<Klant> getKlantById(int id) {
+        return klantRepository.getKlantById(id);
     }
 }

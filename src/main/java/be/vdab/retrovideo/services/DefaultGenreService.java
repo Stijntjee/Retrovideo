@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true , isolation = Isolation.READ_COMMITTED)
-public class DefaultGenreService implements GenreService
+class DefaultGenreService implements GenreService
 {
     private final GenreRepository genreRepository;
 

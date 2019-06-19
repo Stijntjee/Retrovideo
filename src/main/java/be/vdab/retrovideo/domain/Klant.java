@@ -10,7 +10,6 @@ public class Klant
     private String gemeente;
 
     //CONSTRUCTORS
-
     public Klant(int id, String familienaam, String voornaam, String straatNummer, String postcode, String gemeente) {
         this.id = id;
         this.familienaam = familienaam;

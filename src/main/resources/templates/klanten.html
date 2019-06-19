@@ -9,18 +9,13 @@
 </head>
 
 <body>
-<nav>
-    <h1>KLANTEN</h1>
-    <a th:href="@{/}">Genres</a>
-    <a th:href="@{/video/0/mandje}">Mandje</a>
-    <a th:href="@{/klanten}">Klant</a>
-</nav>
+<nav th:replace="fragments::nav(titel='KLANTEN')"></nav>
 
 <div id="container">
     <form th:object="${klantform}" >
         <label>Familienaam bevat:<input th:field="*{familienaam}"></label>
         <input type="submit" value="Zoeken">
-    </form>
+
         <table style="width:100%">
         <tr>
             <th>Naam</th>
@@ -29,12 +24,13 @@
             <th>Gemeente</th>
         </tr>
         <tr th:each="klant:${klanten}" th:object="${klant}">
-            <td th:text="|${klant.voornaam} ${klant.familienaam}|"></td>
+            <td ><a th:text="|${klant.voornaam} ${klant.familienaam}|" th:href="@{/bevestigen/{klant}(klant=${klant.id})}"></a></td>
             <td th:text="${klant.straatNummer}"></td>
             <td th:text="${klant.postcode}"></td>
             <td th:text="${klant.gemeente}"></td>
         </tr>
         </table>
+    </form>
 
 </div>
 

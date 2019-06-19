@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly = true , isolation = Isolation.READ_COMMITTED)
-public class DefaultFilmService implements FilmService
+@Transactional
+class DefaultFilmService implements FilmService
 {
 
     private final FilmRepository filmRepository;
@@ -39,4 +39,8 @@ public class DefaultFilmService implements FilmService
         return filmRepository.getFilmById(id);
     }
 
+    @Override
+    public void reserveer(Film film) {
+        filmRepository.reserveer(film);
+    }
 }

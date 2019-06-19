@@ -2,19 +2,20 @@ package be.vdab.retrovideo.forms;
 
 public class KlantForm
 {
-    String Familienaam;
+    String familienaam;
 
     //CONSTRUCTORS
     public KlantForm(String familienaam) {
-        Familienaam = familienaam;
+        this.familienaam = familienaam;
     }
 
     //GETTERS & SETTERS
     public String getFamilienaam() {
-        return Familienaam;
+        return familienaam;
     }
 
     public void setFamilienaam(String familienaam) {
-        Familienaam = familienaam;
+        this.familienaam = familienaam;
     }
+
 }

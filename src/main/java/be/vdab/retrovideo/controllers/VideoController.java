@@ -22,13 +22,14 @@ class VideoController
     Mandje mandje;
     Optional<Film> film;
 
+    //CONSTRUCTORS
     VideoController(FilmService filmService, Mandje mandje)
     {
         this.filmService = filmService;
         this.mandje = mandje;
     }
 
-
+    //MAPPINGS
     @GetMapping
     public ModelAndView video()
     {

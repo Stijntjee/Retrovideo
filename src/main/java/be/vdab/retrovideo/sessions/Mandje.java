@@ -13,9 +13,9 @@ import java.util.Set;
 public class Mandje implements Serializable
 {
     private static final long serialVersionUID = 1L;
-
     private final Set<Integer> ids = new LinkedHashSet<>();
 
+    //METHODS
     public void voegToe(int id)
     {
         ids.add(id);
